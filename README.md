@@ -4,11 +4,11 @@ This web interface communicates with the Arduino using a websocket on port 8080.
 
 ### Libraries used:
 
-https://github.com/arduino-libraries/WiFiNINA for WiFi connection and servers;
-https://github.com/ocrdu/NINA-Websocket as the websocket library;
-https://github.com/ocrdu/Arduino_LSM6DS3_T as the LSM6DS3 (IMU) library;
-https://github.com/adamvr/arduino-base64 for base64 decoding;
-https://github.com/arduino-libraries/RTCZero as the RTC library.
+- https://github.com/arduino-libraries/WiFiNINA for WiFi connection and servers;
+- https://github.com/ocrdu/NINA-Websocket as the websocket library;
+- https://github.com/ocrdu/Arduino_LSM6DS3_T as the LSM6DS3 (IMU) library;
+- https://github.com/adamvr/arduino-base64 for base64 decoding;
+- https://github.com/arduino-libraries/RTCZero as the RTC library.
 
 ### Notes:
 
@@ -20,4 +20,4 @@ This example will show the interface in your web browser when you point it at th
 
 Almost forgot: if you want to see something happen, put a LED on pin 12 8-).
 
-If you feel like donating for this, you can do so here: ocrdu.nl/donations.
+If you feel like donating for this, you can do so here: http://ocrdu.nl/donations .
