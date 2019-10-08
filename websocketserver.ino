@@ -95,11 +95,11 @@ void loop() {
             int done = 0;
             webClient.println("HTTP/1.1 200 OK\nContent-Type: text/html\nContent-Encoding: gzip\n");
             while (webpage_gz_length > done) {
-              webClient.write(webpage_gz + done, packetsize * sizeof(char));
-              done = done + packetsize;
               if (webpage_gz_length - done < packetsize) {
                 packetsize = webpage_gz_length - done;
               }
+              webClient.write(webpage_gz + done, packetsize * sizeof(char));
+              done = done + packetsize;
             }
             Sprintln("--Interface webpage sent");
           } else if (header.indexOf("GET /author HTTP") > -1) {
