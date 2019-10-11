@@ -322,6 +322,7 @@ function connectSocket() {
 connectSocket();
 
 window.addEventListener("beforeunload", function() {
+  socket.onclose = function() {};
   socket.close();
 });
 
