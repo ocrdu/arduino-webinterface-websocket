@@ -71,9 +71,21 @@ void loop() {
       if (c != '\r') {
         header += c;
       }
+      if (header.indexOf("Upgrade") > -1 && header.indexOf("ebsocket") > -1) {
+        Sprintln("--Websocket upgrade requested on webserver port");
+        webClient.println("HTTP/1.1 400 Bad Request\nContent-Type: text/plain; charset=utf-8\n\n400 Bad Request; websocket not available on this port\n");
+        webClient.stop();
+        Sprintln("--Client disconnected");
+      }
       if (header.substring(0,1) != "G" && header.substring(0,2) != "GE" && header.substring(0,3) != "GET") {
         Sprintln("--Wrong method in header");
         webClient.println("HTTP/1.1 405 Method Not Allowed\nAllow: GET\nContent-Type: text/plain; charset=utf-8\n\n405 Method not allowed; GET only\n");
+        webClient.stop();
+        Sprintln("--Client disconnected");
+      }
+      if (header.indexOf("event-stream") > -1) {
+        Sprintln("--SSE content type request in header");
+        webClient.println("HTTP/1.1 406 Not Acceptable\nContent-Type: text/plain; charset=utf-8\n\n406 Not Acceptable; SSE not available\n");
         webClient.stop();
         Sprintln("--Client disconnected");
       }
@@ -296,6 +308,7 @@ void printWifiStatus() {
   Sprint("IP address: "); Sprintln(WiFi.localIP());
   Sprint("Gateway: "); Sprintln(WiFi.gatewayIP());
   Sprint("Netmask: "); Sprintln(WiFi.subnetMask());
+  Sprint("Webserver is at http://"); Sprint(WiFi.localIP()); Sprintln(":" + (String)webPort + "/");
   Sprint("Websocket is at http://"); Sprint(WiFi.localIP()); Sprintln(":" + (String)socketPort + "/");
 }
 #endif
