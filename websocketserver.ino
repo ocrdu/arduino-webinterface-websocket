@@ -45,6 +45,7 @@ char interface_gz_base64[] = "H4sICO6yoF0CAHdlYnNvY2tldHNlcnZlci5odG1sAOxYe2/TMB
 void setup() {
   #ifdef DEBUG
   Serial.begin(115200);
+  while (!Serial);
   #endif
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(ledPin, OUTPUT);
