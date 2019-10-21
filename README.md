@@ -4,6 +4,8 @@ This web interface communicates with the Arduino using a websocket on port 8080.
 
 The Arduino serves as both a web server and a websocket server.
 
+Note: An Access Point version can be found here: https://github.com/ocrdu/arduino-webinterface-websocket-ap
+
 ### Libraries used:
 
 - https://github.com/ocrdu/WiFiNINA for WiFi connection and servers (**Don't** use https://github.com/arduino-libraries/WiFiNINA 1.4.0 for this sketch)
