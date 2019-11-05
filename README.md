@@ -22,6 +22,6 @@ There is no documentation yet, but the least you need to do to get it to work is
 
 This example will show the interface in your web browser when you point it at the Arduino's IP address  http://x.x.x.99/ , where x.x.x are the first three bytes of the IP addresses of your network. If x.x.x.99 is already taken, you need to change the code.
 
-Almost forgot: if you want to see something happen, put a LED on pin 12 😎.
+Almost forgot: if you want to see something happen, put a LED on pin 12 😎 (but don't pull more than 7mA).
 
 If you feel like donating for this, you can do so here: http://ocrdu.nl/donations .
